@@ -7,10 +7,10 @@ import utils.CommonMethods;
 
 import java.util.List;
 
-public class UserMenu extends CommonMethods {
+public class UserMenuPage extends CommonMethods {
     WebElement webElement;
 
-    public UserMenu() {
+    public UserMenuPage() {
         PageFactory.initElements(driver,this);
     }
 
@@ -18,7 +18,7 @@ public class UserMenu extends CommonMethods {
     public List<WebElement> menuBar;
 
 
-    public void clickOnMenu(String element) {
+    public void findElementAndClickFunction(String element) {
         switch (element) {
             case "Dashboard":
                 webElement = menuBar.get(0);
@@ -47,5 +47,7 @@ public class UserMenu extends CommonMethods {
         }
         clickFunction(webElement);
     }
+
+
 
 }
