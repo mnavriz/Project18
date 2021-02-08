@@ -1,11 +1,24 @@
- Feature: Login to staging.asian-promotions.com
+Feature: Login to staging.asian-promotions.com
 
-   Scenario:
-     Given I navigate to the asian-promotions website homepage
-     When I login username as "username" and password as "password"
-     Then Check if I am logged in
+  Background:
+    Given User navigates to the asian-promotions website homepage
+    When User sends the keys
+      | Username | furkat.khalilov@gmail.com |
+      | Password | 580202442                 |
+    And User clicks on
+      | Submit |
+    Then User is logged in
 
-     #test line
+  Scenario:
+    Given User clicks on MenuBar
+      | Dashboard          |
+      | ManageProfiles     |
+      | FavoritePromotions |
+      | ManageCompany      |
+      | ManageBrand        |
+      | ManageStore        |
+      | ManageEmployee     |
+      | Message            |
 
 
 
