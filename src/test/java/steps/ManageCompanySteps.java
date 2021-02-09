@@ -16,12 +16,15 @@ public class ManageCompanySteps extends BaseClass {
     public void userSelectsTheFile() throws AWTException {
         Robot robot = new Robot();
 
-        String pathToFile = "C:\\Users\\Gareni\\Pictures\\awesome.jpg";
+        String pathToFile = "C:\\Users\\safe glazing\\Desktop\\autodesk.png";
         StringSelection stringSelection = new StringSelection(pathToFile);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection,null);
 
+
         robot.keyPress(KeyEvent.VK_CONTROL);
         robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyRelease(KeyEvent.VK_V);
         robot.keyPress(KeyEvent.VK_ENTER);
     }
 

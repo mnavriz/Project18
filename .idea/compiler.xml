@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ExelenterFrameWork" />
         <module name="exelenterProject" />
+        <module name="sourctreeExelenterProject" />
       </profile>
     </annotationProcessing>
   </component>

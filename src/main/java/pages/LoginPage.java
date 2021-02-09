@@ -1,13 +1,10 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utils.BaseClass;
-import utils.CommonMethods;
 
-public class LoginPage extends CommonMethods {
+public class LoginPage extends BasePage {
 WebElement webElement;
 
     public LoginPage() {

@@ -1,11 +1,16 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utils.CommonMethods;
+import utils.BaseClass;
 
-public class ManageCompanyPage extends CommonMethods {
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+
+public class ManageCompanyPage extends BasePage {
     WebElement webElement;
 
     public ManageCompanyPage() {
@@ -93,4 +98,16 @@ public class ManageCompanyPage extends CommonMethods {
         }
         clickFunction(webElement);
     }
+
+    public void moveToElementAndClickFunction(String element) {
+
+        switch (element) {
+            case "CompanyImage":
+                webElement = CompanyImage;
+                break;
+
+        }
+        moveToElementAndClick(webElement);
+    }
+
 }

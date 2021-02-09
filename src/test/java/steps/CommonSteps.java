@@ -4,6 +4,7 @@ package steps;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import pages.BasePage;
 import pages.LoginPage;
 import pages.ManageCompanyPage;
 import pages.UserMenuPage;
@@ -12,6 +13,7 @@ import utils.BaseClass;
 import java.util.List;
 
 public class CommonSteps extends BaseClass {
+    BasePage basePage = new BasePage();
     LoginPage loginPage = new LoginPage();
     UserMenuPage userMenuPage = new UserMenuPage();
     ManageCompanyPage manageCompanyPage = new ManageCompanyPage();
@@ -52,6 +54,27 @@ public class CommonSteps extends BaseClass {
                     manageCompanyPage.findElementAndClickFunction(allElements.get(i));
                     break;
 
+            }
+        }
+    }
+
+
+    @And("User uploads file")
+    public void userUploadsFile(DataTable dataTable) {
+        List<String> allElements = dataTable.asList(String.class);
+        for (String allElement : allElements) {
+            basePage.uploadFile(allElement);
+        }
+    }
+
+    @And("User hover overs the element and clicks on {string}")
+    public void userHoverOversTheElementAndClicksOn(String page, DataTable dataTable) {
+        List<String> allElements = dataTable.asList(String.class);
+        for (int i = 0; i < allElements.size(); i++) {
+            switch (page) {
+                case "ManageCompanyPage":
+                    manageCompanyPage.moveToElementAndClickFunction(allElements.get(i));
+                    break;
             }
         }
     }
