@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utils.BaseClass;
@@ -12,6 +13,8 @@ import utils.BaseClass;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.List;
+import java.util.Random;
 
 public class BasePage {
     protected WebDriver driver;
@@ -71,10 +74,12 @@ public class BasePage {
     }
 
     protected void scrollToElement(WebElement elementToScroll){
+//        JavascriptExecutor js = ((JavascriptExecutor) driver);
+//        js.executeScript("arguments[0].scrollIntoView();", elementToScroll);
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = ((JavascriptExecutor) driver);
+        js.executeScript("arguments[0].scrollIntoView(true);", elementToScroll);
 
-        js.executeScript("arguments[0].scrollIntoView();", elementToScroll);
     }
 
     protected void moveToElementAndClick(WebElement element){
@@ -105,5 +110,28 @@ public class BasePage {
             e.printStackTrace();
         }
     }
+
+    public void selectDropDownRandomByIndex(WebElement element) {
+        Select select = new Select(element);
+        int selectionSize = select.getOptions().size();
+        System.out.println("selectionSize = " + selectionSize);
+        Random random = new Random();
+        int randomIndex = random.nextInt(selectionSize);
+        System.out.println("randomIndex = " + randomIndex);
+        select.selectByIndex(randomIndex);
+        waiting(2000);
+    }
+
+    public void selectDropDownByName(String name, WebElement element) {
+        Select select = new Select(element);
+        select.selectByVisibleText(name);
+//        List<WebElement> allDropDownElements = select.getAllSelectedOptions();
+//        for (WebElement webElement : allDropDownElements) {
+//            if (name.equals(webElement.getText())) {
+//                clickFunction(webElement);
+//            }
+//        }
+    }
+
 
 }

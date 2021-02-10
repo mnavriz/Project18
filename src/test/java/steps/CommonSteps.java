@@ -4,6 +4,7 @@ package steps;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.support.ui.Select;
 import pages.BasePage;
 import pages.LoginPage;
 import pages.ManageCompanyPage;
@@ -84,5 +85,10 @@ public class CommonSteps extends BaseClass {
                     break;
             }
         }
+    }
+
+    @And("Selecting drop down")
+    public void selectingDropDown() {
+        basePage.selectDropDownByName("Hide",manageCompanyPage.VisibilityDropDown);
     }
 }

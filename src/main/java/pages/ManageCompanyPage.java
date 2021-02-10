@@ -38,7 +38,7 @@ public class ManageCompanyPage extends BasePage {
     @FindBy(name = "company_registration_no")
     public WebElement CompanyRegistrationNo;
 
-    @FindBy(id = "select2-public_visibility-0m-container")
+    @FindBy(name = "public_visibility")
     public WebElement VisibilityDropDown;
 
     @FindBy(name = "submit")
@@ -76,6 +76,9 @@ public class ManageCompanyPage extends BasePage {
                 break;
             case "SearchInputField":
                 webElement = SearchInputField;
+                break;
+            case "CompanyImage":
+                webElement = CompanyImage;
                 break;
         }
         sendKeysFunction(webElement, text);
