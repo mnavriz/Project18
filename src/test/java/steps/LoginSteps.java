@@ -7,7 +7,7 @@ import pages.LoginPage;
 import pages.UserMenuPage;
 import utils.BaseClass;
 
-public class loginSteps extends BaseClass {
+public class LoginSteps extends BaseClass {
     WebDriver driver;
     LoginPage loginPage = new LoginPage();
     UserMenuPage userMenuPage = new UserMenuPage();
