@@ -2,10 +2,10 @@ Feature: Login to staging.asian-promotions.com
 
   Background:
     Given User navigates to the asian-promotions website homepage
-    When User sends the keys in "LoginPage"
+    When User sends the keys in "loginPage"
       | Username | furkat.khalilov@gmail.com |
       | Password | 580202442                 |
-    And User clicks on "LoginPage"
+    And User clicks on "loginPage"
       | Submit |
     Then User is logged in
 
@@ -30,10 +30,10 @@ Feature: Login to staging.asian-promotions.com
 
     Examples:
       | Path To File To Upload                         | Company Name                   | Company Tagline | Company Website    | Company Profile | Company Mission | Company Reg.No | Test Case Name |
-      | C:\\Users\\safe glazing\\Desktop\\autodesk.png | Go                             | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.a  |
-#      | C:\\Users\\safe glazing\\Desktop\\autodesk.png | GoogleGoogleGoogleGoogleGoogle | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.b  |
-#      | C:\\Users\\safe glazing\\Desktop\\autodesk.png | Google?                        | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.c  |
-#      | C:\\Users\\safe glazing\\Desktop\\autodesk.png | Google!                        | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.c  |
+      | C:\\Users\\safe glazing\\Desktop\\autodesk.png | G                              | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.a  |
+      | C:\\Users\\safe glazing\\Desktop\\autodesk.png | GoogleGoogleGoogleGoogleGoogle | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.b  |
+      | C:\\Users\\safe glazing\\Desktop\\autodesk.png | ?!$#’[]{}%^*+=@~`              | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.c  |
+      | C:\\Users\\safe glazing\\Desktop\\autodesk.png |     " "                        | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.d  |
 #      | C:\\Users\\safe glazing\\Desktop\\autodesk.png | Google$                        | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.c  |
 #      | C:\\Users\\safe glazing\\Desktop\\autodesk.png | Google#                        | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.c  |
 #      | C:\\Users\\safe glazing\\Desktop\\autodesk.png | Google'                        | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.c  |

@@ -62,7 +62,7 @@ public class BasePage {
         Assert.assertTrue(element.getText().contains(myText));
     }
 
-    protected void waiting(int howLong){
+    public void waiting(int howLong){
         try {
             Thread.sleep(howLong);
         } catch (InterruptedException e) {
@@ -88,6 +88,7 @@ public class BasePage {
         Robot robot = null;
         try {
             robot = new Robot();
+
 
         StringSelection stringSelection = new StringSelection(pathToFile);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection,null);

@@ -28,7 +28,7 @@ public class CommonSteps extends BaseClass {
             System.out.println(AllElementsNameAndValue.get(i).get(1));
 
             switch (page) {
-                case "LoginPage":
+                case "loginPage":
                     loginPage.findElementAndSendKeysFunction(AllElementsNameAndValue.get(i).get(0) ,AllElementsNameAndValue.get(i).get(1));
                     break;
                 case "ManageCompanyPage":
@@ -42,9 +42,10 @@ public class CommonSteps extends BaseClass {
     @And("User clicks on {string}")
     public void userClicksOn(String page, DataTable dataTable) {
         List<String> allElements = dataTable.asList(String.class);
+
         for (int i = 0; i < allElements.size(); i++) {
             switch (page) {
-                case "LoginPage":
+                case "loginPage":
                     loginPage.findElementAndClickFunction(allElements.get(i));
                     break;
                 case "UserMenu":
@@ -54,6 +55,11 @@ public class CommonSteps extends BaseClass {
                     manageCompanyPage.findElementAndClickFunction(allElements.get(i));
                     break;
 
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -65,6 +71,7 @@ public class CommonSteps extends BaseClass {
         for (String allElement : allElements) {
             basePage.uploadFile(allElement);
         }
+        basePage.waiting(1000);
     }
 
     @And("User hover overs the element and clicks on {string}")
