@@ -1,0 +1,5 @@
+1. Create a Local Folder on your computer 
+2. Open a Git Bash and navigate to the folder created
+3. in Git Bash type >>>>> git clone https://github.com/furkatkhalilov/exelenterProject.git <<<<< + press Enter
+4. type >>>>> cd exelenterProject <<<<< + press Enter
+5. Intellij -> File -> Open 
