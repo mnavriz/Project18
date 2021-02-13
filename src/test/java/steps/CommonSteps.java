@@ -89,6 +89,7 @@ public class CommonSteps extends BaseClass {
 
     @And("Selecting drop down")
     public void selectingDropDown() {
+        basePage.waiting(2000);
         basePage.selectDropDownByName("Hide",manageCompanyPage.VisibilityDropDown);
     }
 }

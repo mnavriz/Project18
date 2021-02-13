@@ -10,13 +10,14 @@ import utils.BaseClass;
 
         features = {"src/test/java/featureFiles"},
         glue = {"steps"},
-        dryRun = false
+        dryRun = false,
+        plugin = {"pretty", "html:target/report/index.html"}
 
 )
 
 public class ParallelRunner extends AbstractTestNGCucumberTests {
-        @BeforeClass
-        @Parameters("browser")
+//        @BeforeClass
+//        @Parameters("browser")  // in case of parallel running on different browsers from XML folder, should be un-muted.
         public void beforeMethod(String browser){
             BaseClass.browserName.set(browser);
         }

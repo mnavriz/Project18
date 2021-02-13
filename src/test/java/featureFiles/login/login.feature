@@ -3,8 +3,8 @@ Feature: Login to staging.asian-promotions.com
   Background:
     Given User navigates to the asian-promotions website homepage
     When User sends the keys in "loginPage"
-      | Username | furkat.khalilov@gmail.com |
-      | Password | 580202442                 |
+      | Username | rafael@exelenter.com |
+      | Password | rafael               |
     And User clicks on "loginPage"
       | Submit |
     Then User is logged in
@@ -27,8 +27,8 @@ Feature: Login to staging.asian-promotions.com
       | <Test Case Name> |
 
     Examples:
-      | Company Image                         | Company Name                   | Company Tagline | Company Website    | Company Profile | Company Mission | Company Reg.No | Test Case Name |
-      | C:\Users\Gareni\Pictures\awesome.jpg | G                              | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.a  |
+      | Company Image                              | Company Name | Company Tagline | Company Website       | Company Profile | Company Mission | Company Reg.No | Test Case Name |
+      | D:\Users\safe glazing\Desktop\autodesk.png | Exelenter    | Search Anything | https://exelenter.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.a  |
 #      | C:\Users\Gareni\Pictures\awesome.jpg | GoogleGoogleGoogleGoogleGoogle | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.b  |
 #      | C:\Users\Gareni\Pictures\awesome.jpg | ?!$#’[]{}%^*+=@~`              | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.c  |
 #      | C:\Users\Gareni\Pictures\awesome.jpg | " "                            | Search Anything | https://google.com | Google Profile  | Google Mission  | 12345678       | Test Case 1.d  |

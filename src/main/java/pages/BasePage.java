@@ -123,6 +123,7 @@ public class BasePage {
     }
 
     public void selectDropDownByName(String name, WebElement element) {
+        waitUntilVisible(element);
         Select select = new Select(element);
         select.selectByVisibleText(name);
 //        List<WebElement> allDropDownElements = select.getAllSelectedOptions();

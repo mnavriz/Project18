@@ -1,1 +1,5 @@
-target/*
+target
+.idea
+test-ouput
+*.iml
+
