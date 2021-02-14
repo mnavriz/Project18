@@ -8,7 +8,7 @@ import utils.BaseClass;
 
 @CucumberOptions(
 
-        features = {"src/test/java/featureFiles"},
+        features = {"src/test/java/featureFiles/login/ManageBrand.feature"},
         glue = {"steps"},
         dryRun = false,
         plugin = {"pretty", "html:target/report/index.html"}

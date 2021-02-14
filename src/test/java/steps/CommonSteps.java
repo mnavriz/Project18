@@ -5,10 +5,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.support.ui.Select;
-import pages.BasePage;
-import pages.LoginPage;
-import pages.ManageCompanyPage;
-import pages.UserMenuPage;
+import pages.*;
 import utils.BaseClass;
 
 import java.util.List;
@@ -18,6 +15,7 @@ public class CommonSteps extends BaseClass {
     LoginPage loginPage = new LoginPage();
     UserMenuPage userMenuPage = new UserMenuPage();
     ManageCompanyPage manageCompanyPage = new ManageCompanyPage();
+    ManageBrandPage manageBrandPage = new ManageBrandPage();
 
     @When("User sends the keys in {string}")
     public void user_sends_the_keys(String page, DataTable dataTable) {
@@ -34,6 +32,9 @@ public class CommonSteps extends BaseClass {
                     break;
                 case "ManageCompanyPage":
                     manageCompanyPage.findElementAndSendKeysFunction(AllElementsNameAndValue.get(i).get(0) ,AllElementsNameAndValue.get(i).get(1));
+                    break;
+                case "ManageBrandPage":
+                    manageBrandPage.findElementAndSendKeysFunction(AllElementsNameAndValue.get(i).get(0) ,AllElementsNameAndValue.get(i).get(1));
                     break;
             }
         }
@@ -54,6 +55,9 @@ public class CommonSteps extends BaseClass {
                     break;
                 case "ManageCompanyPage":
                     manageCompanyPage.findElementAndClickFunction(allElements.get(i));
+                    break;
+                case "ManageBrandPage":
+                    manageBrandPage.findElementAndClickFunction(allElements.get(i));
                     break;
 
             }
