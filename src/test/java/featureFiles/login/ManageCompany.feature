@@ -7,6 +7,7 @@ Feature: Login to staging.asian-promotions.com
       | Password | rafael               |
     And User clicks on "loginPage"
       | Submit |
+
     Then User is logged in
 
   Scenario Outline: Manage Company | Fields Validation

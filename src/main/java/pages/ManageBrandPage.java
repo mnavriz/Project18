@@ -5,11 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ManageBrandPage extends BasePage {
-    WebElement webElement;
 
-    public ManageBrandPage() {
-        PageFactory.initElements(driver, this);
-    }
+    WebElement webElement;
+    public ManageBrandPage() {PageFactory.initElements(driver, this);}
 
     @FindBy(name="company_id")
     public WebElement CompanyIdDropdown;
@@ -37,6 +35,9 @@ public class ManageBrandPage extends BasePage {
 
     @FindBy(name="submit")
     public WebElement SubmitButton;
+
+    @FindBy(xpath = "//a[text()='Edit']")
+    public WebElement EditButton;
 
     public void findElementAndSendKeysFunction(String element, String text) {
         switch (element) {
@@ -69,19 +70,12 @@ public class ManageBrandPage extends BasePage {
             case "SubmitButton":
                 webElement = SubmitButton;
                 break;
+            case "EditButton":
+                webElement = EditButton;
+                break;
 
         }
         clickFunction(webElement);
     }
-
-
-
-
-
-
-
-
-
-
 
 }

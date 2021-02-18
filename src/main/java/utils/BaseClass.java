@@ -24,7 +24,6 @@ public class BaseClass {
     public static void tearDown() {
 
         if (threadDriver.get() != null) {
-
             threadDriver.get().quit();
             WebDriver driver = threadDriver.get();
             driver = null;

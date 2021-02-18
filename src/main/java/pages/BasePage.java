@@ -13,10 +13,14 @@ import utils.BaseClass;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.function.Predicate;
 
 public class BasePage {
+
     protected WebDriver driver;
     protected WebDriverWait wait;
 
@@ -24,6 +28,13 @@ public class BasePage {
         this.driver = BaseClass.setUp();
         wait = new WebDriverWait(driver,15);
     }
+
+
+
+    public void findElementAndSendKeysFunction(String element, String text) {}
+
+
+    public void findElementAndClickFunction(String element) {}
 
     //    Click on element method
     protected void clickFunction(WebElement element){
@@ -133,6 +144,8 @@ public class BasePage {
 //            }
 //        }
     }
+
+
 
 
 }

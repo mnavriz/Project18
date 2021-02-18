@@ -11,11 +11,10 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
 public class ManageCompanyPage extends BasePage {
+
     WebElement webElement;
 
-    public ManageCompanyPage() {
-        PageFactory.initElements(driver, this);
-    }
+    public ManageCompanyPage() { PageFactory.initElements(driver, this);}
 
     @FindBy(name = "company_name")
     public WebElement CompanyName;
@@ -52,7 +51,6 @@ public class ManageCompanyPage extends BasePage {
 
     @FindBy(linkText = "Details")
     public WebElement DetailsButton;
-
 
     public void findElementAndSendKeysFunction(String element, String text) {
         switch (element) {

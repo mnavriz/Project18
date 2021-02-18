@@ -8,7 +8,10 @@ import org.openqa.selenium.support.ui.Select;
 import pages.*;
 import utils.BaseClass;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class CommonSteps extends BaseClass {
     BasePage basePage = new BasePage();
@@ -20,6 +23,7 @@ public class CommonSteps extends BaseClass {
     @When("User sends the keys in {string}")
     public void user_sends_the_keys(String page, DataTable dataTable) {
         List<List<String>> AllElementsNameAndValue= dataTable.asLists(String.class);
+
 
         for(int i =0 ; i <AllElementsNameAndValue.size() ; i++){
 
@@ -38,6 +42,7 @@ public class CommonSteps extends BaseClass {
                     break;
             }
         }
+
     }
 
 
@@ -59,6 +64,7 @@ public class CommonSteps extends BaseClass {
                 case "ManageBrandPage":
                     manageBrandPage.findElementAndClickFunction(allElements.get(i));
                     break;
+
 
             }
             try {
