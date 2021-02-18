@@ -9,12 +9,13 @@ import utils.BaseClass;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 
-public class ManageCompanyPage extends BasePage {
-    WebElement webElement;
-
+public class ManageCompanyPage extends BasePage implements Page {
+    private HashMap<String, WebElement> map = new HashMap<>();
     public ManageCompanyPage() {
         PageFactory.initElements(driver, this);
+        initMap();
     }
 
     @FindBy(name = "company_name")
@@ -53,64 +54,46 @@ public class ManageCompanyPage extends BasePage {
     @FindBy(linkText = "Details")
     public WebElement DetailsButton;
 
+    @Override
+    public void initMap() {
+        map.put("CompanyImage", CompanyImage);
+        map.put("SaveButton", SaveButton);
+        map.put("DeleteButton", DeleteButton);
+        map.put("DetailsButton", DetailsButton);
+        map.put("CompanyName", CompanyName);
+        map.put("CompanyTagline", CompanyTagline);
+        map.put("CompanyWebsite", CompanyWebsite);
+        map.put("CompanyProfileInformation", CompanyProfileInformation);
+        map.put("CompanyMission", CompanyMission);
+        map.put("CompanyRegistrationNo", CompanyRegistrationNo);
+        map.put("SearchInputField", SearchInputField);
+        map.put("VisibilityDropDown", VisibilityDropDown);
+   }
 
-    public void findElementAndSendKeysFunction(String element, String text) {
-        switch (element) {
-            case "CompanyName":
-                webElement = CompanyName;
-                break;
-            case "CompanyTagline":
-                webElement = CompanyTagline;
-                break;
-            case "CompanyWebsite":
-                webElement = CompanyWebsite;
-                break;
-            case "CompanyProfileInformation":
-                webElement = CompanyProfileInformation;
-                break;
-            case "CompanyMission":
-                webElement = CompanyMission;
-                break;
-            case "CompanyRegistrationNo":
-                webElement = CompanyRegistrationNo;
-                break;
-            case "SearchInputField":
-                webElement = SearchInputField;
-                break;
-            case "CompanyImage":
-                webElement = CompanyImage;
-                break;
-        }
-        sendKeysFunction(webElement, text);
+    // ===========================All methods to be listed here ======================
+    @Override
+    public void findElementAndClickFunction(String element)
+    {
+        clickFunction(getWebElement(map, element));
     }
 
-    public void findElementAndClickFunction(String element) {
-        switch (element) {
-            case "CompanyImage":
-                webElement = CompanyImage;
-                break;
-            case "SaveButton":
-                webElement = SaveButton;
-                break;
-            case "DeleteButton":
-                webElement = DeleteButton;
-                break;
-            case "DetailsButton":
-                webElement = DetailsButton;
-                break;
-        }
-        clickFunction(webElement);
+    @Override
+    public void findElementAndSendKeysFunction(String element, String text)
+    {
+        sendKeysFunction(getWebElement(map,element), text);
     }
 
-    public void moveToElementAndClickFunction(String element) {
+    @Override
+    public void selectFromDropDownByRandomIndex(String element)
+    {
+        selectDropDown(getWebElement(map,element));
 
-        switch (element) {
-            case "CompanyImage":
-                webElement = CompanyImage;
-                break;
+    }
 
-        }
-        moveToElementAndClick(webElement);
+    @Override
+    public void selectFromDropDownByName(String nameToSelect, String element)
+    {
+        selectDropDown(nameToSelect, getWebElement(map,element));
     }
 
 }

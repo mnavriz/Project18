@@ -4,11 +4,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends BasePage {
-WebElement webElement;
+import java.util.HashMap;
 
+public class LoginPage extends BasePage implements Page {
+    private HashMap<String, WebElement> map = new HashMap<>();
     public LoginPage() {
         PageFactory.initElements(driver, this);
+        initMap();
     }
 
     @FindBy(name = "email")
@@ -20,26 +22,37 @@ WebElement webElement;
     @FindBy(name = "submit")
     private WebElement Submit;
 
-
-    public void findElementAndSendKeysFunction(String element, String text) {
-        switch (element) {
-            case "Username":
-                webElement = Username;
-                break;
-            case "Password":
-                webElement = Password;
-                break;
-        }
-        sendKeysFunction(webElement, text);
+    public void initMap(){
+        map.put("Username", Username);
+        map.put("Password", Password);
+        map.put("Submit", Submit);
     }
 
-    public void findElementAndClickFunction(String element) {
-        switch (element) {
-            case "Submit":
-                webElement = Submit;
-                break;
-        }
-        clickFunction(webElement);
+
+    // ===========================All methods to be listed here ======================
+    @Override
+    public void findElementAndClickFunction(String element)
+    {
+        clickFunction(getWebElement(map, element));
+    }
+
+    @Override
+    public void findElementAndSendKeysFunction(String element, String text)
+    {
+        sendKeysFunction(getWebElement(map,element), text);
+    }
+
+    @Override
+    public void selectFromDropDownByRandomIndex(String element)
+    {
+        selectDropDown(getWebElement(map,element));
+
+    }
+
+    @Override
+    public void selectFromDropDownByName(String nameToSelect, String element)
+    {
+        selectDropDown(nameToSelect, getWebElement(map,element));
     }
 
 }
