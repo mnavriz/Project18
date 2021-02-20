@@ -1,5 +1,8 @@
 package pages;
 
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -45,10 +48,15 @@ public class BasePage {
     //    Send keys function
     protected void sendKeysFunction(WebElement element , String value){
 
-        waitUntilVisible(element);
-        scrollToElement(element);
-        element.clear();
-        element.sendKeys(value);
+        try{
+            waitUntilVisible(element);
+            scrollToElement(element);
+            element.clear();
+            element.sendKeys(value);
+        }catch (IllegalArgumentException e){
+            System.out.println("Element can not be empty");
+        }
+
 
     }
 
@@ -141,5 +149,35 @@ public class BasePage {
 
     }
 
+    public void AssertionByUsingAlert(String result) {
+        String Alertext="";
 
+        try {
+            Alertext = driver.switchTo().alert().getText();
+            driver.switchTo().alert().accept();
+        }  catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        Assert.assertEquals(result,Alertext);
+    }
+
+    public void AssertionByWebElement(WebElement element, String expectedMessage) {
+
+        String ActualMessage = "";
+
+        try {
+            waitUntilVisible(element);
+            ActualMessage= element.getText();
+        }catch (Exception e){
+          ActualMessage = "Keys to send should be a not null";
+        }
+
+        System.out.println(ActualMessage + "-Actual Message");
+        System.out.println(expectedMessage + "-Expected Message");
+        Assert.assertTrue(ActualMessage.contains(expectedMessage));
+    }
 }
+
+
+

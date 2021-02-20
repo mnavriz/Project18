@@ -12,7 +12,8 @@
     <test name = "chrome">
         <parameter name="browser" value = "chrome"/>
         <classes>
-            <class name="runners.ParallelRunner" />
+            <class name="runners.DemoRunner" />
+            <class name="runners.TestCampusRunner" />
 
         </classes>
     </test>

@@ -13,4 +13,6 @@ public interface Page {
 
     void selectFromDropDownByName(String nameToSelect, String element);
 
+    void alertByWebElement(String webElement, String expectedText);
+
 }

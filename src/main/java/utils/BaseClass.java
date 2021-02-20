@@ -1,15 +1,12 @@
 package utils;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import pages.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 
 public class BaseClass {
@@ -59,10 +56,7 @@ public class BaseClass {
 
     private static void initPageList(){
         // all new created Pages must be put in the list in this method.
-        list.add(new LoginPage());
-        list.add(new ManageBrandPage());
-        list.add(new ManageCompanyPage());
-        list.add(new UserMenuPage());
-
+        list.add(new DemoPage());
+        list.add(new TestCampusPage());
     }
 }

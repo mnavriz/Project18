@@ -3,6 +3,7 @@ package steps;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import utils.BaseClass;
 
@@ -53,4 +54,15 @@ public class CommonSteps extends BaseClass {
             getPage(page).selectFromDropDownByRandomIndex(allElements.get(i));
         }
     }
-}
+
+
+    @Then("Verify message is {string} in {string}")
+    public void verifyMessageIsIn(String expectedMessage, String page, DataTable dataTable) {
+        List<String> allElements = dataTable.asList(String.class);
+
+        for (int i = 0; i < allElements.size(); i++) {
+
+            getPage(page).alertByWebElement(allElements.get(i),expectedMessage);
+        }
+
+    }}
